@@ -1,3 +1,9 @@
+variable "drone_helm_chart_version" {
+  description = "Drone helm chart version to use"
+  type        = string
+  default     = ""
+}
+
 variable "drone_server_host" {
   description = "Hostname for Drone (will be utilised in ingress if enabled)"
   type        = string

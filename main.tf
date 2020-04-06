@@ -3,6 +3,7 @@ resource "helm_release" "drone" {
   repository = data.helm_repository.drone.metadata[0].name
   chart      = "drone"
   namespace  = "drone"
+  version    = var.drone_helm_chart_version == "" ? null : var.drone_helm_chart_version
 
   values = [
     templatefile(
