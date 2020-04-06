@@ -2,7 +2,7 @@ resource "helm_release" "drone" {
   name       = "drone"
   repository = data.helm_repository.drone.metadata[0].name
   chart      = "drone"
-  namespace  = "drone"
+  namespace  = var.drone_namespace
   version    = var.drone_helm_chart_version == "" ? null : var.drone_helm_chart_version
 
   values = [

@@ -1,3 +1,9 @@
+variable "drone_namespace" {
+  description = "Namespace to release Drone into"
+  type        = string
+  default     = "drone"
+}
+
 variable "drone_helm_chart_version" {
   description = "Drone helm chart version to use"
   type        = string
