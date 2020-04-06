@@ -6,7 +6,7 @@ resource "helm_release" "drone" {
 
   values = [
     templatefile(
-      "./templates/values.yaml.tpl",
+      "${path.module}/templates/values.yaml.tpl",
       {
         "drone_server_host"  = var.drone_server_host
         "drone_server_proto" = var.drone_server_proto
