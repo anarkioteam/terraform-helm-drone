@@ -8,7 +8,7 @@ ingress:
   enabled: ${ drone_ingress_enabled }
   annotations:
     kubernetes.io/ingress.class: ${ drone_ingress_class }
-    kubernetes.io/tls-acme: ${ drone_ingress_tls_acme_enabled }
+    kubernetes.io/tls-acme: "${ drone_ingress_tls_acme_enabled }"
   hosts:
     - host: ${ drone_server_host }
       paths:
