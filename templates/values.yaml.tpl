@@ -5,7 +5,7 @@ env:
   DRONE_USER_FILTER: ${ drone_user_filter }
 
 ingress:
-  enabled: $ { drone_ingress_enabled }
+  enabled: ${ drone_ingress_enabled }
   annotations:
     kubernetes.io/ingress.class: ${ drone_ingress_class }
     kubernetes.io/tls-acme: ${ drone_ingress_tls_acme_enabled }
