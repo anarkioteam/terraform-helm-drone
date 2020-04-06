@@ -4,7 +4,22 @@ resource "helm_release" "drone" {
   chart      = "drone"
   namespace  = "drone"
 
-  values = [data.template_file.values_file.rendered]
+  values = [
+    templatefile(
+      "./templates/values.yaml.tpl",
+      {
+        "drone_server_host"  = var.drone_server_host
+        "drone_server_proto" = var.drone_server_proto
+        "drone_user_create"  = var.drone_user_create
+        "drone_user_filter"  = var.drone_user_filter
+
+        "drone_ingress_enabled"          = var.drone_ingress_enabled
+        "drone_ingress_tls_acme_enabled" = var.drone_ingress_tls_acme_enabled
+        "drone_ingress_class"            = var.drone_ingress_class
+        "drone_ingress_tls_secret_name"  = var.drone_ingress_tls_secret_name
+      }
+    )
+  ]
 
   set_sensitive {
     name  = "env.DRONE_RPC_SECRET"
