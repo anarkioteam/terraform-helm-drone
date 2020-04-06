@@ -52,7 +52,7 @@ variable "drone_ingress_tls_acme_enabled" {
   default     = "true"
 }
 
-variable "drone_ingress_tls_cert_secret_name" {
+variable "drone_ingress_tls_secret_name" {
   description = "Secret name for Drone TLS cert"
   type        = string
   default     = "drone-cert"
